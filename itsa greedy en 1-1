@@ -1,0 +1,31 @@
+#include <iostream> 
+using namespace std; 
+int main(){ 
+  ios_base::sync_with_stdio(false); 
+  cin.tie(0); 
+  int t; 
+  int c[6]={1,2,3,5,8,13}; 
+  cin>>t; 
+  for(int i=0;i<t;i++){//跑測資 
+    long long int m; 
+    cin>>m; 
+    int sum=0;//硬幣數 
+    while(m!=0){//算幾個硬幣 
+      int flag=0; 
+      for(int j=0;j<6;j++){ 
+        if(c[j]>m){ 
+          m=m-c[j-1]; 
+          flag=1; 
+          sum=sum+1; 
+          break; 
+        } 
+      } 
+      if(flag==0 and m>0){ 
+          m=m-c[5]; 
+          sum=sum+1; 
+        } 
+    } 
+    cout<<sum<<endl; 
+  } 
+  return 0; 
+}  
