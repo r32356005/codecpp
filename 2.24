@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    int a;
+    scanf("%d",&a);
+    if(a%2==1){
+        printf("奇數");
+    }else{
+        printf("偶數");
+    }
+    return 0;
+}
