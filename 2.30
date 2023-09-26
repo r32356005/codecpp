@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int a;
+    scanf("%d",&a);
+    for(int i=4;i>=0;i--){
+        int sa=1;
+        for(int j=0;j<i;j++){
+            sa=sa*10;
+        }
+        printf("%d   ",a/sa);
+        a=a-(a/sa)*sa;
+    }
+    return 0;
+}
