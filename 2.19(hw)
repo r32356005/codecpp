@@ -3,7 +3,7 @@
 int main()
 {
     int a,b,c;
-    printf("Enter three different integers:");
+    printf("Enter three different integers: ");
     scanf("%d%d%d",&a,&b,&c);
     int max=a,min=a;
     printf("Sum is %d\n",a+b+c);
