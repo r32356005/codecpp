@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    int a,b;
+    scanf("%d%d",&a,&b);
+    printf("%d\n",a+b);
+    printf("%d\n",(a*a)+(b*b));
+    printf("%d\n",(a*a*a)+(b*b*b));
+    printf("%d\n",abs(a-b));
+    printf("%d\n",abs((a*a)-(b*b)));
+    printf("%d\n",abs((a*a*a)-(b*b*b)));
+    return 0;
+}
