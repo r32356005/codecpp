@@ -1,0 +1,93 @@
+#include <stdio.h>
+#define test 1//int 
+#define test2 (5/3)//int
+#define test3 3.14//float
+#define test4 (5/2.2)//float
+int main(){
+  printf("%d %d %f %f\n",test,test2,test3,test4);//1 1 3.140000 2.272727
+  //變數命名 n開頭非英文 n特殊符號(除了下引號)
+  float a=3.45329;
+  printf("%.0f %.1f\n",a,a);//3 3.5 四捨五入
+  printf("%10.4f\n",a);//----3.4533
+  printf("%-10.4f\n",a);//3.4533----
+  //scanf("%d%d%f%f",&i,&j,&f,&g);1-20.3-4.0e3   1 -20 .3 -4.0e3
+  int x,y;
+  scanf("%d/%d",&x,&y);//cin>>5/4; must/  讀的順序為 %d 後面一定邀接/ 然後一直跳過空格到下一個%d
+  printf("%d\t%d\n",x,y);//cout<<5  4;
+
+  float i;
+  scanf(" %d%f%d",&x,&i,&y);//cin>>10.3 5 6
+  printf("%d %.2f %d",x,i,y);//cout<<10 .30 5
+  
+  //9+2.5f 11.5
+  //6.7f/2 3.35
+  //1/2 0
+  //6.7f%2 und must (int)%(int)
+  //-9%7 -2 看最前面的+-號
+  //-9%-7 -2 
+  //9%-7 2
+  int r;//r=72.99f r=72
+  float q;//q=136 q=136.0
+  //a = b += c++ - d + --e / -f;
+  //(a = (b += (((c++) - d) + ((--e) / (-f)))));
+  i=5<10<15;//i=1 (5<10)<15
+  i=5<10>15;//i=0 (5<10)>15
+  int   j = 2, k;
+  i=1;
+  k = i > j ? i : j;//if(i>j) k=i else k=j k=2
+  k = i >= 0 ? i : 0;//k=1
+  k = i >= 0 ? i : 0 + j;//k=0
+  k = (i >= 0 ? i : 0) + j;//k=2
+  int p;
+  switch(p){//沒break的話會把後面的敘述都會做一次 case同一個情況只能存在一次
+    case 4:
+    printf("4");
+    break;
+    case 3:
+    printf("3");
+    break;
+    case 2:
+    printf("2");
+    break;
+    case 1:
+    printf("1");
+    break;
+    default:
+    break;
+  }
+  k = 5;
+  for (int k = 0; k < 2; k++) { //create new version of i
+    printf("%d", k); //print 0, 1
+  }
+  printf("%d", k);   // print 5
+  k = 5;
+  for (int k = 0; k < 2; k++) { //create new version of i
+    printf("%d", k); //print 0, 1
+  }
+  printf("%d", k);   // print 2
+  for(int i=0;i<5;i++){//print 012end
+    if(i==3){
+      goto de;
+    }
+    printf("%d",i);
+  }
+  printf("***");
+  de:
+  printf("end");
+  //signed 包括-號 unsigned只有正整數
+  //long long int 2^64-1
+  //decimal 二進位
+  //octal 八進位
+  //hex 16進位
+  //long int %ld
+  //long long int %lld
+  //char %c
+  char ch = 'a';
+  putchar(ch);//print a
+  ch = getchar();
+  while ((ch = getchar()) == ' ');   
+  putchar(ch);//scanf  ---123 print 1 讀到第三個空格時把1放進去 讀1時候不府和判斷
+  typedef int fo;
+  fo flag=4;//=int flag=4
+  return 0;
+} 
