@@ -1,0 +1,101 @@
+while(1){
+    scanf("%c",&dre);
+    if(dre=='\n'){//會讀到\n debug三天才找到!!!!!!!!!
+      continue;
+    }
+    //printf("%d\n",(int)dre);
+    switch(dre){//玩家移動
+      case 's':
+        if(loc+x1>=x1*y1){
+          break;
+        }
+        move(map[loc+x1],map,&score,&life,x1,y1,&cool);
+        map[loc+x1]=1;
+        map[loc]=0;
+        loc=loc+x1;
+        break;
+      case 'w':
+        if(loc-x1<0){
+          break;
+        }
+        move(map[loc-x1],map,&score,&life,x1,y1,&cool);
+        map[loc-x1]=1;
+        map[loc]=0;
+        loc=loc-x1;
+        break;
+      case 'a':
+        if((loc-1)%x1==x1-1){
+          break;
+        }
+        move(map[loc-1],map,&score,&life,x1,y1,&cool);
+        map[loc-1]=1;
+        map[loc]=0;
+        loc=loc-1;
+        break;
+      case 'd':
+        if((loc+1)%x1==0){
+          break;
+        }
+        move(map[loc+1],map,&score,&life,x1,y1,&cool);
+        map[loc+1]=1;
+        map[loc]=0;
+        loc=loc+1;
+        break;
+    }
+    if(life<=0){//判斷生命
+      clearup();
+      printf("Game Over.\nIf you want to play again,please enter 'y'.\n");
+      char c;
+      scanf("%c",&c);
+      if(c=='y'){
+        clearup();
+        goto enter;
+      }
+    }
+    if(score==goal){//判斷分數是否到達目標
+      clearup();
+      printf("You win.\n");
+      return 0;
+    }
+    if(cool!=0){
+      cool--;
+    }else{
+      for(int i=0;i<x1*y1;i++){//monster move
+        if(map[i]==3){
+          int temp=rand()%4+1;
+          if(temp==1){
+            if(map[i-1]!=0||((i-1)%x1==x1-1)){
+              map[i]=5;
+            }else{
+              map[i-1]=5;
+            }
+          }else if(temp==2){
+            if(map[i+1]!=0||((i+1)%x1==0)){
+              map[i]=5;
+            }else{
+              map[i+1]=5;
+            }
+          }else if(temp==3){
+            if(map[i-x1]!=0||((i-x1)<0)){
+              map[i]=5;
+            }else{
+              map[i-x1]=5;
+            }
+          }else if(temp==4){
+            if(map[i+x1]!=0||((i+x1)>=x1*y1)){
+              map[i]=5;
+            }else{
+              map[i+x1]=5;
+            }
+          }
+        }
+      }
+      for(int i=0;i<x1*y1;i++){
+        if(map[i]==3){
+          map[i]=0;
+        }
+        if(map[i]==5){
+          map[i]=3;
+        }
+      }
+    }
